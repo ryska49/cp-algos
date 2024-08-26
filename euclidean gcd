@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+  /// this algo is used to reduce time complexity of the gcd
+  /// iT STATE THAT GCD(A,B)== GCD(A-B, A) where a>b and this process goes till
+  /// one of them became zero
+  // more preciously GCD(A,B)== GCD(A%B, B)  where a>b and gcd is b
+  int a, b;
+  a = 13;
+  b = 11;
+  while (a > 0 && b > 0) {
+    if (a > b) {
+      a = a % b;
+
+    } else {
+      b = b % a;
+    }
+  }
+  if (a == 0) {
+    cout << b;
+  } else {
+    cout << a;
+  }
+}
