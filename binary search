@@ -1,0 +1,21 @@
+int search(vector<int>& nums, int target) {
+        int start = 0;
+        int end = nums.size() - 1;
+
+        while (end >= start) {
+            int mid = (start + end) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[start] == target) {
+                return start;
+            } else if (nums[end] == target) {
+                return end;
+            } else if (nums[mid] > target) {
+                end = mid;
+            } else if (target > nums[mid]) {
+                start = mid;
+            }
+        }
+        return -1;
+    }
+    // return the index of given target
